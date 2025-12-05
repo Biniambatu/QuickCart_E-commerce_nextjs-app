@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import "./globals.css";
+import { AppContextProvider } from "@/context/AppContext";
+
+//import { Toaster } from "react-hot-toast";
+
+const outfit = Outfit({ subsets: ['latin'], weight: ["300", "400", "500"] })
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,12 +29,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+   <html lang="en">
+        <body className={`${outfit.className} antialiased text-gray-700`} >
+          {/* <Toaster /> */}
+          <AppContextProvider>
+            {children}
+          </AppContextProvider>
+        </body>
+      </html>
   );
 }
