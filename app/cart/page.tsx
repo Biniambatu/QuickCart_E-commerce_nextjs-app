@@ -4,6 +4,7 @@ import { assets } from "@/assets/assets";
 import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import Navbar from "../components/Navbar";
+import OrderSummary from "../components/OrderSummary";
 
 const Cart = () => {
 
@@ -110,7 +111,7 @@ const Cart = () => {
             Continue Shopping
           </button>
         </div>
-        {/* <OrderSummary /> */}
+        <OrderSummary />
       </div>
     </>
   );
