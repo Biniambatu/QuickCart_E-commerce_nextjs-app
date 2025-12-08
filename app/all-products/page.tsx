@@ -1,9 +1,9 @@
 'use client'
 //import ProductCard from "@/components/ProductCard";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import { products } from '../../assets/productData'
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../../components/ProductCard";
 //import { useAppContext } from "@/context/AppContext";
 
 const AllProduct = () => {
