@@ -7,8 +7,8 @@ import Footer from "../../components/Footer";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import Loading from "../../components/Loading";
-import { useAppContext } from "@/context/AppContext";
-import React from "react";
+import { useAppContext } from "../../../context/AppContext";
+
 
 const Product = () => {
 
@@ -116,7 +116,7 @@ const Product = () => {
                         <button onClick={() => addToCart(productData._id)} className="w-full py-3.5 bg-gray-100 text-gray-800/80 hover:bg-gray-200 transition">
                             Add to Cart
                         </button>
-                        <button onClick={() => { addToCart(productData._id); router.push('/cart') }} className="w-full py-3.5 bg-orange-500 text-white hover:bg-orange-600 transition">
+                        <button onClick={() => {addToCart(productData._id);  router.push('/cart')} }className="w-full py-3.5 bg-orange-500 text-white hover:bg-orange-600 transition">
                             Buy now
                         </button>
                     </div>

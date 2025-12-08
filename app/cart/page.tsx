@@ -2,12 +2,12 @@
 import React from "react";
 import { assets } from "@/assets/assets";
 import Image from "next/image";
-//import { useAppContext } from "@/context/AppContext";
+import { useAppContext } from "@/context/AppContext";
 import Navbar from "../components/Navbar";
 
 const Cart = () => {
 
- // const { products, router, cartItems, addToCart, updateCartQuantity, getCartCount } = useAppContext();
+ const { products, router, cartItems, addToCart, updateCartQuantity, getCartCount } = useAppContext();
 
   return (
     <>
@@ -39,7 +39,7 @@ const Cart = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* {Object.keys(cartItems).map((itemId) => {
+                {Object.keys(cartItems).map((itemId) => {
                   const product = products.find(product => product._id === itemId);
 
                   if (!product || cartItems[itemId] <= 0) return null;
@@ -97,11 +97,11 @@ const Cart = () => {
                       <td className="py-4 md:px-4 px-1 text-gray-600">${(product.offerPrice * cartItems[itemId]).toFixed(2)}</td>
                     </tr>
                   );
-                })} */}
+                })}
               </tbody>
             </table>
           </div>
-          <button  className="group flex items-center mt-6 gap-2 text-orange-600">
+          <button onClick={() => router.push('/')} className="group flex items-center mt-6 gap-2 text-orange-600">
             <Image
               className="group-hover:-translate-x-1 transition"
               src={assets.arrow_right_icon_colored}

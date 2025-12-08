@@ -6,8 +6,9 @@ import FeaturedProducts from "./components/FeaturedProducts";
 import Banner from "./components/Banner";
 import NewsLetter from "./components/NewsLetter";
 import Footer from "./components/Footer";
-
+//import { AppProvider } from "../context/AppContext";
 export default function Home() {
+  
   return (
     <>
       <Navbar/>
