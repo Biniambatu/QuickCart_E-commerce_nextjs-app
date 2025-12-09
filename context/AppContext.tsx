@@ -1,6 +1,7 @@
 'use client'
 
 import { productsDummyData } from "@/assets/assets";
+import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -15,7 +16,11 @@ export const AppContextProvider = (props) => {
     const currency = process.env.NEXT_PUBLIC_CURRENCY
     
     const [ products, setProducts ] = useState([])
+    const [isSeller, setIsSeller] = useState(true)
+    const [userData, setUserData] = useState(false)
     const [cartItems, setCartItems] = useState({})
+
+    const { user } = useUser()
 
     const fetchProductData = async () => {
          setProducts(productsDummyData)
@@ -71,8 +76,14 @@ export const AppContextProvider = (props) => {
     }
 
     const value = {
-        router, products, fetchProductData, addToCart, cartItems, setCartItems,
-        updateCartQuantity, getCartAmount, getCartCount, currency
+        router, products, 
+        fetchProductData, addToCart, 
+        cartItems, setCartItems,
+        updateCartQuantity, 
+        getCartAmount, getCartCount, 
+        currency, isSeller,
+        setIsSeller, userData, 
+        setUserData, user
     }
      return (
          <AppContext.Provider value={value}>

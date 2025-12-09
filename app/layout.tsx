@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 import { AppContextProvider } from "@/context/AppContext";
+import { ClerkProvider } from "@clerk/nextjs";
 //import { Toaster } from "react-hot-toast";
 
 const outfit = Outfit({ subsets: ['latin'], weight: ["300", "400", "500"] })
@@ -29,7 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-   <html lang="en">
+    <ClerkProvider>
+      <html lang="en">
         <body className={`${outfit.className} antialiased text-gray-700`} >
           {/* <Toaster /> */}
           <AppContextProvider>
@@ -37,5 +39,7 @@ export default function RootLayout({
           </AppContextProvider>
         </body>
       </html>
+    </ClerkProvider>
+   
   );
 }
